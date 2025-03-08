@@ -121,7 +121,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--pretrain", type=str, default="trl-lib/pythia-1b-deduped-tldr-sft")
     parser.add_argument("--dataset", type=str, default="Kyleyee/train_data_tldr")
-    parser.add_argument("--dataset_probs", type=str, default="1.0", help="sampling probs for datasets")
+    parser.add_argument("--dataet_probs", type=str, default="1.0", help="sampling probs for datasets")
     parser.add_argument("--save_path", type=str, default="../results/gpm_tldr")
     parser.add_argument("--save_steps", type=int, default=-1)
     parser.add_argument("--logging_steps", type=int, default=50)
