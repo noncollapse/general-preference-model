@@ -4,8 +4,7 @@ from typing import Optional
 import deepspeed
 import torch
 import torch.nn as nn
-from peft import LoraConfig, get_peft_model
-from peft.tuners.lora import LoraLayer
+
 from transformers import AutoConfig, AutoModel, BitsAndBytesConfig, AutoModelForCausalLM
 from transformers.deepspeed import HfDeepSpeedConfig
 from general_preference.utils.logging import init_logger
@@ -81,6 +80,8 @@ def get_reward_model(
     )
     # LoRA
     if lora_rank > 0:
+        from peft import LoraConfig, get_peft_model
+        from peft.tuners.lora import LoraLayer
         model.enable_input_require_grads()
         lora_config = LoraConfig(
             r=lora_rank,

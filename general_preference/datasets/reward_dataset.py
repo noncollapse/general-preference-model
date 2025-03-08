@@ -6,14 +6,14 @@ from .utils import exist_and_not_none, zero_pad_sequences
 
 def preprocess_data(data, is_custom=False):
     if is_custom:
-        if "chosen" in data and "response" in data["chosen"]:
-            prompt = data["instruction"]
-            chosen = data["chosen"]["response"]
-            reject = data["reject"]["response"]
-        else:
-            prompt = data["instruction"]
-            chosen = data["chosen"]
-            reject = data["reject"]
+        # if "chosen" in data and "response" in data["chosen"]:
+        #     prompt = data["prompt"]
+        #     chosen = data["chosen"]["response"]
+        #     reject = data["reject"]["response"]
+        # else:
+        prompt = data["prompt"]
+        chosen = data["chosen"]
+        reject = data["rejected"]
         margin = data["margin"] if exist_and_not_none(data, "margin") else 0
         return prompt, chosen, reject, margin
     else:
